@@ -40,3 +40,7 @@ nix-store -q --tree "$(command -v basename)"
 /nix/store/<hash>-nix-<ver>/bin/nix-env -i /nix/store/<hash>-nix-<ver>
 #+END_SRC
 
+* Operator
+Boolean - ||, &&, !, builtins.div.
+Relational - !=, ==, <, >, <=, >=.
+e1 // e2 - e2 shadows values from e1
