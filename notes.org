@@ -44,3 +44,14 @@ nix-store -q --tree "$(command -v basename)"
 Boolean - ||, &&, !, builtins.div.
 Relational - !=, ==, <, >, <=, >=.
 e1 // e2 - e2 shadows values from e1
+* Type
+Simple types:
+** Integer
+** Floating point
+** String
+** Path
+** Boolean
+** Null
+Complex types:
+** List
+** Set
