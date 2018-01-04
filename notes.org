@@ -55,3 +55,10 @@ Simple types:
 Complex types:
 ** List
 ** Set
+s = { foo = "bar"; a-b = "str"; "key" = "value"; }
+Access key/value: s.a-b
+*** Argument set
+mul = { a, b }
+*** Recursive set
+rec { a = "val"; b = "val"; }
+
