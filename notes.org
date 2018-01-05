@@ -62,3 +62,17 @@ mul = { a, b }
 *** Recursive set
 rec { a = "val"; b = "val"; }
 
+** Function
+*** if
+*** let
+Define local variables for inner expression.
+*** with
+Include includes attrribute set into expression.
+*** lambda
+**** One argument
+x: x*2
+**** Several arguments
+y: (x: x*y)
+**** Variadic arguments
+mul = { a, b, ... }: a*b
+
