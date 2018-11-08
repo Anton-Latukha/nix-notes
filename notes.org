@@ -7,9 +7,7 @@ A general and convenient concept for realizing rollbacks.
 Keeps track of the dependencies between derivations.
 
 Made up of multiple "generations".
-
 * Commands
-
 ** Show direct runtime dependencie
 #+BEGIN_SRC shell
 nix-store -q --references "$(command -v bassename)"
@@ -80,5 +78,5 @@ mul = { a, b, ... }: a*b
 currentSystem
 isAttrs
 attrNames
- toString
+toString
 
