@@ -80,3 +80,5 @@ isAttrs
 attrNames
 toString
 
+* removeReferencesTo
+Forces remove of the dependency. Even if Nix filter does not reduce dependency after compilation.
