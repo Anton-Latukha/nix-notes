@@ -82,3 +82,6 @@ toString
 
 * removeReferencesTo
 Forces remove of the dependency. Even if Nix filter does not reduce dependency after compilation.
+* Useful commands
+** Show all derivation dependencies sorted by their closure size
+nix path-info --json -rS *store path* | jq 'map(select(.closureSize > 1e6)) | sort_by(.closureSize) | map([.path, .closureSize/1e6])'
