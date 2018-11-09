@@ -85,3 +85,5 @@ Forces remove of the dependency. Even if Nix filter does not reduce dependency a
 * Useful commands
 ** Show all derivation dependencies sorted by their closure size
 nix path-info --json -rS *store path* | jq 'map(select(.closureSize > 1e6)) | sort_by(.closureSize) | map([.path, .closureSize/1e6])'
+** Show all derivation dependencies sorted by their output size
+nix path-info --json -rs *store path* | jq 'map(select(.narSize > 1e6)) | sort_by(.narSize) | map([.path, .narSize/1e6])'
