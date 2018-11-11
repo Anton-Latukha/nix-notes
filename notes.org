@@ -91,3 +91,5 @@ nix path-info --json -rs *store path* | jq 'map(select(.narSize > 1e6)) | sort_b
 nix-store -q --tree *store path*
 ** Build derivation from local NixPkgs description
 nix-build {/home/pyro/src/nixpkgs} -A *attrName*
+** Get total closure size
+nix-store -qR *store path* | xargs du -s | cut -f 1 | xargs | sed -e 's/ /+/g'|bc
