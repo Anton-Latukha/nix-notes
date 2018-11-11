@@ -89,3 +89,5 @@ nix path-info --json -rS *store path* | jq 'map(select(.closureSize > 1e6)) | so
 nix path-info --json -rs *store path* | jq 'map(select(.narSize > 1e6)) | sort_by(.narSize) | map([.path, .narSize/1e6])'
 ** Show all closure dependencies in a tree form
 nix-store -q --tree *store path*
+** Build derivation from local NixPkgs description
+nix-build {/home/pyro/src/nixpkgs} -A *attrName*
