@@ -74,6 +74,11 @@ y: (x: x*y)
 **** Variadic arguments
 mul = { a, b, ... }: a*b
 
+* Different notes
+** stdenvNoCC
+without C compiler
+** Check what closure references
+nix-store -q --references path/
 * Built-in function
 currentSystem
 isAttrs
