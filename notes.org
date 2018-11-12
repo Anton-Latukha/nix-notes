@@ -93,3 +93,12 @@ nix-store -q --tree *store path*
 nix-build {/home/pyro/src/nixpkgs} -A *attrName*
 ** Get total closure size
 nix-store -qR *store path* | xargs du -s | cut -f 1 | xargs | sed -e 's/ /+/g'|bc
+** Enter nix-shell environment to test/work with package
+nix-shell {/home/pyro/src/nixpkgs} -A *attrName*
+As comands enter next phases:
+*** unpackPhase
+*** cd *folder*
+*** patchPhase
+*** configurePhase
+*** buildPhase
+
