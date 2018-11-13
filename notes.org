@@ -107,3 +107,11 @@ As comands enter next phases:
 *** configurePhase
 *** buildPhase
 
+** Build depending closures with nox-review
+nix-shell -p nox --run "nox-review wip" # test uncommited changes
+nix-shell -p nox --run "nox-review wip --against *previous to changes commit*"
+** Run tests for package
+nix-build '<nixpkgs/nixos/tests/login.nix>'
+OR
+cd /my/nixpkgs/nixos/tests
+nix-build login.nix
