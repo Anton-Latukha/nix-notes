@@ -136,3 +136,11 @@ nix-build test.nix
 #+END_SRC
 
 It runs against the current Git repo.
+* Developing/debugging package
+** Set: enableParallelBuilding -> false, - so log output would be syncronized
+** Write-down initial size of closure with: nix path-info -S /nix/store/hash-package
+** Sort the dependencies in the end, as last changes
+** Before writing bug reports: dig deeper, think broadly
+** Run nix-shell -p nox --run "nox-review wip --against <commithash>" to test-build dependent packages.
+** Run tests before submitting pull request with cd path_to_test ;and nix-build <test-file.nix>
+
