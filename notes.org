@@ -84,7 +84,6 @@ currentSystem
 isAttrs
 attrNames
 toString
-
 * removeReferencesTo
 Forces remove of the dependency. Even if Nix filter does not reduce dependency after compilation.
 * Useful commands
@@ -108,8 +107,11 @@ As comands enter next phases:
 *** buildPhase
 
 ** Build depending closures with nox-review
-nix-shell -p nox --run "nox-review wip" # test uncommited changes
+#+BEGIN_SRC shell
+nix-shell -p nox --run "nox-review wip"    # tests uncommited changes
 nix-shell -p nox --run "nox-review wip --against *previous to changes commit*"
+nix-shell -p nox --run "nox-review pr *id*"    # very slow, clones NixPkgs
+#+END_SRC
 ** Run tests for package
 nix-build '<nixpkgs/nixos/tests/login.nix>'
 OR
