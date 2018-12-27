@@ -8,7 +8,7 @@ Keeps track of the dependencies between derivations.
 
 Made up of multiple "generations".
 * Commands
-** Show direct runtime dependencie
+** Show direct runtime dependencies
 #+BEGIN_SRC shell
 nix-store -q --references "$(command -v bassename)"
 #+END_SRC
@@ -44,22 +44,21 @@ Relational - !=, ==, <, >, <=, >=.
 e1 // e2 - e2 shadows values from e1
 * Type
 Simple types:
-** Integer
-** Floating point
-** String
-** Path
-** Boolean
-** Null
+ * Integer
+ * Floating point
+ * String
+ * Path
+ * Boolean
+ * Null
 Complex types:
-** List
-** Set
+ * List
+ * Set
 s = { foo = "bar"; a-b = "str"; "key" = "value"; }
 Access key/value: s.a-b
-*** Argument set
+   * Argument set
 mul = { a, b }
-*** Recursive set
+   * Recursive set
 rec { a = "val"; b = "val"; }
-
 ** Function
 *** if
 *** let
@@ -73,12 +72,13 @@ x: x*2
 y: (x: x*y)
 **** Variadic arguments
 mul = { a, b, ... }: a*b
-
 * Different notes
 ** stdenvNoCC
 without C compiler
 ** Check what closure references
+#+BEGIN_SRC shell
 nix-store -q --references path/
+#+END_SRC
 * Built-in function
 currentSystem
 isAttrs
@@ -88,32 +88,51 @@ toString
 Forces remove of the dependency. Even if Nix filter does not reduce dependency after compilation.
 * Useful commands
 ** Show all derivation dependencies sorted by their closure size
+#+BEGIN_SRC shell
 nix path-info --json -rS *store path* | jq 'map(select(.closureSize > 1e6)) | sort_by(.closureSize) | map([.path, .closureSize/1e6])'
+#+END_SRC
 ** Show all derivation dependencies sorted by their output size
+#+BEGIN_SRC shell
 nix path-info --json -rs *store path* | jq 'map(select(.narSize > 1e6)) | sort_by(.narSize) | map([.path, .narSize/1e6])'
+#+END_SRC
 ** Show all closure dependencies in a tree form
+#+BEGIN_SRC shell
 nix-store -q --tree *store path*
+#+END_SRC
 ** Build derivation from local NixPkgs description
+#+BEGIN_SRC shell
 nix-build {/home/pyro/src/nixpkgs} -A *attrName*
+#+END_SRC
 ** Get total closure size
+#+BEGIN_SRC shell
 nix-store -qR *store path* | xargs du -s | cut -f 1 | xargs | sed -e 's/ /+/g'|bc
+#+END_SRC
 ** Enter nix-shell environment to test/work with package
+#+BEGIN_SRC shell
 nix-shell {/home/pyro/src/nixpkgs} -A *attrName*
+#+END_SRC
 As comands enter next phases:
 *** unpackPhase
 *** cd *folder*
 *** patchPhase
 *** configurePhase
 *** buildPhase
-
 ** Build depending closures with nox-review
 #+BEGIN_SRC shell
 nix-shell -p nox --run "nox-review wip"    # tests uncommited changes
-nix-shell -p nox --run "nox-review wip --against *previous to changes commit*"
+nix-shell -p nox --run "nox-review wip --against *the previous to changes commit*"
 nix-shell -p nox --run "nox-review pr *id*"    # very slow, clones NixPkgs
 #+END_SRC
 ** Run tests for package
+For current system <nixpkgs>, using NIX_PATH:
+#+BEGIN_SRC shell
 nix-build '<nixpkgs/nixos/tests/login.nix>'
-OR
-cd /my/nixpkgs/nixos/tests
-nix-build login.nix
+#+END_SRC
+
+For running selected nix derivation / test from Git NixPkgs repo:
+#+BEGIN_SRC shell
+cd ~/src/nixpkgs/..
+nix-build test.nix
+#+END_SRC
+
+It runs against the current Git repo.
