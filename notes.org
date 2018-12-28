@@ -143,4 +143,15 @@ It runs against the current Git repo.
 ** Before writing bug reports: dig deeper, think broadly
 ** Run nix-shell -p nox --run "nox-review wip --against <commithash>" to test-build dependent packages.
 ** Run tests before submitting pull request with cd path_to_test ;and nix-build <test-file.nix>
+** Debug flags for make (put it in buildFlags section)
+make --debug=FLAGS
+
+where flags can be:
+
+    a for all debugging (same as make -d and make --debug).
+    b for basic debugging.
+    v for slightly more verbose basic debugging.
+    i for implicit rules.
+    j for invocation information.
+    m for information during makefile remakes.
 
