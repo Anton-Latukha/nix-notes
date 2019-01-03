@@ -155,3 +155,10 @@ where flags can be:
     j for invocation information.
     m for information during makefile remakes.
 
+* Evaluating data in REPL
+#+BEGIN_SRC shell
+nix repl
+pkgs = import <nixpkgs> {}
+pkgs.config.allowUnfree
+#-> true
+#+END_SRC
