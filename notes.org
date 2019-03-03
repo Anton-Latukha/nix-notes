@@ -168,3 +168,4 @@ pkgs.config.allowUnfree
 * 3-d Utils
 ** Define Nix dependencies to build in nix-shell env with `nix-script` tool
 ** Nix-review tool to automate reviews
+** niff - compares two Nix expressions and determines which attributes changed
