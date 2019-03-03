@@ -7,37 +7,6 @@ A general and convenient concept for realizing rollbacks.
 Keeps track of the dependencies between derivations.
 
 Made up of multiple "generations".
-* Commands
-** Show direct runtime dependencies
-#+BEGIN_SRC shell
-nix-store -q --references "$(command -v bassename)"
-#+END_SRC
-
-** Show reverse dependencies
-#+BEGIN_SRC shell
-nix-store -q --referrers "$(command -v basename)"
-#+END_SRC
-
-** Show catamorphed closure
-#+BEGIN_SRC shell
-nix-store -qR "$(command -v bassename)"
-#+END_SRC
-
-** Show tree of closure
-#+BEGIN_SRC shell
-nix-store -q --tree "$(command -v basename)"
-#+END_SRC
-
-** Recovering making rollback from store directory
-#+BEGIN_SRC shell
-/nix/store/<hash>-nix-<ver>/bin/nix-env --rollback
-#+END_SRC
-
-** Recover with reinstall from store directory
-#+BEGIN_SRC shell
-/nix/store/<hash>-nix-<ver>/bin/nix-env -i /nix/store/<hash>-nix-<ver>
-#+END_SRC
-
 * Operator
 Boolean - ||, &&, !, builtins.div.
 Relational - !=, ==, <, >, <=, >=.
@@ -87,6 +56,36 @@ toString
 * removeReferencesTo
 Forces remove of the dependency. Even if Nix filter does not reduce dependency after compilation.
 * Useful commands
+** Show direct runtime dependencies
+#+BEGIN_SRC shell
+nix-store -q --references "$(command -v bassename)"
+#+END_SRC
+
+** Show reverse dependencies
+#+BEGIN_SRC shell
+nix-store -q --referrers "$(command -v basename)"
+#+END_SRC
+
+** Show catamorphed closure
+#+BEGIN_SRC shell
+nix-store -qR "$(command -v bassename)"
+#+END_SRC
+
+** Show tree of closure
+#+BEGIN_SRC shell
+nix-store -q --tree "$(command -v basename)"
+#+END_SRC
+
+** Recovering making rollback from store directory
+#+BEGIN_SRC shell
+/nix/store/<hash>-nix-<ver>/bin/nix-env --rollback
+#+END_SRC
+
+** Recover with reinstall from store directory
+#+BEGIN_SRC shell
+/nix/store/<hash>-nix-<ver>/bin/nix-env -i /nix/store/<hash>-nix-<ver>
+#+END_SRC
+
 ** Show all derivation dependencies sorted by their closure size
 #+BEGIN_SRC shell
 nix path-info --json -rS *store path* | jq 'map(select(.closureSize > 1e6)) | sort_by(.closureSize) | map([.path, .closureSize/1e6])'
