@@ -135,6 +135,10 @@ nix-build test.nix
 #+END_SRC
 
 It runs against the current Git repo.
+** To try the app without installing
+   #+begin_src shell
+   nix run nixpkgs.nix-review
+   #+end_src
 * Developing/debugging package
 ** Set: enableParallelBuilding -> false, - so log output would be syncronized
 ** Write-down initial size of closure with: nix path-info -S /nix/store/hash-package
