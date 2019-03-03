@@ -165,3 +165,5 @@ pkgs = import <nixpkgs> {}
 pkgs.config.allowUnfree
 #-> true
 #+END_SRC
+* 3-d Utils
+** Define Nix dependencies to build in nix-shell env with `nix-script` tool
