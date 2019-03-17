@@ -158,6 +158,16 @@ where flags can be:
     j for invocation information.
     m for information during makefile remakes.
 
+** Build isolation on Hydra
+Sandboxing allows to solve cuncerrect bind of the same port on several build packages tests.
+
+NixOS now has default: sandboxes enabled.
+
+It is possible to enable sandboxing on Multiuser installations of Nix.
+
+Sandboxing has OS API similar to container APIs (like, Docker).
+
+Sandbox is strict.
 * Evaluating data in REPL
 #+BEGIN_SRC shell
 nix repl
@@ -165,7 +175,7 @@ pkgs = import <nixpkgs> {}
 pkgs.config.allowUnfree
 #-> true
 #+END_SRC
-* 3-d Utils
+* Utils
 ** Define Nix dependencies to build in nix-shell env with `nix-script` tool
 ** Nix-review tool to automate reviews
 ** niff - compares two Nix expressions and determines which attributes changed
