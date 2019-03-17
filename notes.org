@@ -219,4 +219,21 @@ pkgs.config.allowUnfree
 ** Define Nix dependencies to build in nix-shell env with `nix-script` tool
 ** Nix-review tool to automate reviews
 ** niff - compares two Nix expressions and determines which attributes changed
+** nix-sysdig
+Debug the build, record system call trace, replay it.
+
+`sysdig` is a Kernel tool to debug containers.
+Inside the Kernel there is a `sysdig.ko`.
+Kernel -> sysgig.ko -> System call trace -> sysdig
+
+Use the wrapper `nix-sysdig`:
+  * Records all system calls
+  * Replay system calls on demand with filtering
+  * + Add heuristics
+#+begin_src shell
+sudo nix-sysdig record packageName
+# shell now in the package sandboxe
+# manually go through the procedure to build the package
+Ctrl+C - stop recording
+#+end_src
 * Misc
