@@ -186,6 +186,13 @@ Sandbox is strict.
  dev/..
  nix/store/ # Build closure <-Bind-mount-[ Host Nix store ]
 #+end_src
+**** Sandbox namespacing
+  * Network namespacing - private loopback device
+  * IPC namespacing - private unix sockets/shared memory
+  * UTS namespacing - private hostname: `localhost`
+  * User namespacing - single user `nixbld`:1000 -Mapped-onto-> one of `nixbld`:[1-99] on the host
+  * Mount namespacing - bind mounts limited to chroot
+  * PID namespacing - build sees only its own processes
 * Evaluating data in REPL
 #+BEGIN_SRC shell
 nix repl
