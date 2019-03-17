@@ -198,6 +198,14 @@ Sandbox is strict.
   * Policy programs based on eBPF-vm
   * Forbids setuid binaries
   * Forbids ACL
+** breakpointHook buildInputs
+When the build crashes - it halts and print a command that allows to attach to the buildbox.
+It attaches your system attached to the sandbox.
+
+To go fully into the container:
+#+begin_src shell
+cntr exec
+#+end_src
 * Evaluating data in REPL
 #+BEGIN_SRC shell
 nix repl
