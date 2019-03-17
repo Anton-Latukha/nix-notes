@@ -206,6 +206,8 @@ To go fully into the container:
 #+begin_src shell
 cntr exec
 #+end_src
+** Debug syscalls with sysdig
+See [[nix-sysdig]]
 * Evaluating data in REPL
 #+BEGIN_SRC shell
 nix repl
@@ -217,3 +219,4 @@ pkgs.config.allowUnfree
 ** Define Nix dependencies to build in nix-shell env with `nix-script` tool
 ** Nix-review tool to automate reviews
 ** niff - compares two Nix expressions and determines which attributes changed
+* Misc
