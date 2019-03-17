@@ -168,6 +168,24 @@ It is possible to enable sandboxing on Multiuser installations of Nix.
 Sandboxing has OS API similar to container APIs (like, Docker).
 
 Sandbox is strict.
+** Sandbox components
+  * (No cgroups, cgroups is to limit how much resources process can use)
+**** Build chroot
+#+begin_src shell
+/
+ build/
+       env-vars/
+       projectName/
+ usr/bin/env
+ bin/sh
+ etc/
+     group
+     hosts
+     passwd
+ proc/..
+ dev/..
+ nix/store/ # Build closure <-Bind-mount-[ Host Nix store ]
+#+end_src
 * Evaluating data in REPL
 #+BEGIN_SRC shell
 nix repl
