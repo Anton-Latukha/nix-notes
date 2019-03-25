@@ -237,3 +237,4 @@ sudo nix-sysdig record packageName
 Ctrl+C - stop recording
 #+end_src
 * Misc
+** Sharing /nix over all nodes
