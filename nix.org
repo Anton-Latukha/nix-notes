@@ -238,3 +238,11 @@ Ctrl+C - stop recording
 #+end_src
 * Misc
 ** Sharing /nix over all nodes
+** Network-online target
++ means the networking stack is up
++ ifs not guaranteed to still be configured
++ only use in After= for clean ahutdown
++ ifs are configured with routable IPs
++ use target only as last resort
++ services suppose to handle network reconfiguration gracefully
++ use with After= & Wants=
