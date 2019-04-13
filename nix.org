@@ -45,9 +45,9 @@ mul = { a, b, ... }: a*b
 ** stdenvNoCC
 without C compiler
 ** Check what closure references
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-store -q --references path/
-#+END_SRC
+#+end_src
 * Built-in function
 currentSystem
 isAttrs
@@ -57,59 +57,59 @@ toString
 Forces remove of the dependency. Even if Nix filter does not reduce dependency after compilation.
 * Useful commands
 ** Show direct runtime dependencies
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-store -q --references "$(command -v bassename)"
-#+END_SRC
+#+end_src
 
 ** Show reverse dependencies
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-store -q --referrers "$(command -v basename)"
-#+END_SRC
+#+end_src
 
 ** Show catamorphed closure
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-store -qR "$(command -v bassename)"
-#+END_SRC
+#+end_src
 
 ** Show tree of closure
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-store -q --tree "$(command -v basename)"
-#+END_SRC
+#+end_src
 
 ** Recovering making rollback from store directory
-#+BEGIN_SRC shell
+#+begin_src shell
 /nix/store/<hash>-nix-<ver>/bin/nix-env --rollback
-#+END_SRC
+#+end_src
 
 ** Recover with reinstall from store directory
-#+BEGIN_SRC shell
+#+begin_src shell
 /nix/store/<hash>-nix-<ver>/bin/nix-env -i /nix/store/<hash>-nix-<ver>
-#+END_SRC
+#+end_src
 
 ** Show all derivation dependencies sorted by their closure size
-#+BEGIN_SRC shell
+#+begin_src shell
 nix path-info --json -rS *store path* | jq 'map(select(.closureSize > 1e6)) | sort_by(.closureSize) | map([.path, .closureSize/1e6])'
-#+END_SRC
+#+end_src
 ** Show all derivation dependencies sorted by their output size
-#+BEGIN_SRC shell
+#+begin_src shell
 nix path-info --json -rs *store path* | jq 'map(select(.narSize > 1e6)) | sort_by(.narSize) | map([.path, .narSize/1e6])'
-#+END_SRC
+#+end_src
 ** Show all closure dependencies in a tree form
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-store -q --tree *store path*
-#+END_SRC
+#+end_src
 ** Build derivation from local NixPkgs description
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-build {/home/pyro/src/nixpkgs} -A *attrName*
-#+END_SRC
+#+end_src
 ** Get total closure size
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-store -qR *store path* | xargs du -s | cut -f 1 | xargs | sed -e 's/ /+/g'|bc
-#+END_SRC
+#+end_src
 ** Enter nix-shell environment to test/work with package
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-shell {/home/pyro/src/nixpkgs} -A *attrName*
-#+END_SRC
+#+end_src
 As comands enter next phases:
 *** unpackPhase
 *** cd *folder*
@@ -117,22 +117,22 @@ As comands enter next phases:
 *** configurePhase
 *** buildPhase
 ** Build depending closures with nox-review
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-shell -p nox --run "nox-review wip"    # tests uncommited changes
 nix-shell -p nox --run "nox-review wip --against *the previous to changes commit*"
 nix-shell -p nox --run "nox-review pr *id*"    # very slow, clones NixPkgs
-#+END_SRC
+#+end_src
 ** Run tests for package
 For current system <nixpkgs>, using NIX_PATH:
-#+BEGIN_SRC shell
+#+begin_src shell
 nix-build '<nixpkgs/nixos/tests/login.nix>'
-#+END_SRC
+#+end_src
 
 For running selected nix derivation / test from Git NixPkgs repo:
-#+BEGIN_SRC shell
+#+begin_src shell
 cd ~/src/nixpkgs/..
 nix-build test.nix
-#+END_SRC
+#+end_src
 
 It runs against the current Git repo.
 ** To try the app without installing
@@ -209,12 +209,12 @@ cntr exec
 ** Debug syscalls with sysdig
 See [[nix-sysdig]]
 * Evaluating data in REPL
-#+BEGIN_SRC shell
+#+begin_src shell
 nix repl
 pkgs = import <nixpkgs> {}
 pkgs.config.allowUnfree
 #-> true
-#+END_SRC
+#+end_src
 * Utils
 ** Define Nix dependencies to build in nix-shell env with `nix-script` tool
 ** Nix-review tool to automate reviews
