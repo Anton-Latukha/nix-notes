@@ -402,6 +402,14 @@ false
 x : x*2
 #+end_src
 
+***** Named lambda function with one parameter
+#+begin_src nix
+name = x : x*2
+# ...
+name 3
+# 6
+#+end_src
+
 **** List :drill:
 **** Set :drill:
 
