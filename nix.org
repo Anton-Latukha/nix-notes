@@ -357,3 +357,15 @@ Print in the tree form, bigger closures first, recurse into paths only uniqule:
 #+end_src
 *** nix-build
 Build a nix expresiion.
+* Language Nix
+:PROPERTIES:
+:ID:       e4483417-ba89-46f4-97a6-a629dff5be82
+:END:
+** Value types of Nix Language
+*** Operation type
+**** Arithmetic operation
++ - * builtins.div
+**** Boolean
+|| && !
+**** Order
+!= < > <= >= ==
