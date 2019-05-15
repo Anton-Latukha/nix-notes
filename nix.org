@@ -236,6 +236,19 @@ sudo nix-sysdig record packageName
 # manually go through the procedure to build the package
 Ctrl+C - stop recording
 #+end_src
+* Features :drill:
+:PROPERTIES:
+:ID:       a92f03d4-52a5-42d5-ad45-f9ebe1c4c067
+:END:
+** Profiles are snapshots :drill:
+:PROPERTIES:
+:ID:       dd7e0293-0bd5-4ce8-ba39-394b96d1d0db
+:END:
+They provide rollback versioning.
+** Language is purely funcitonal, with lazy evaluation. :drill:
+:PROPERTIES:
+:ID:       44d92141-78f1-4505-89b0-565fd57edcc0
+:END:
 * Misc
 ** Sharing /nix over all nodes
 ** Network-online target
