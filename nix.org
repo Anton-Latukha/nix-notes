@@ -473,4 +473,20 @@ let a = 3; b = 4; in a+b
 Variable value can not be assined more then once.
 Variable value can be shadowed by the local scope.
 
+** with expression
+#+begin_src nix
+longName = {
+             a = 3;
+             b = 4;
+           }
+with longName; a+b
+#+end_src
+
+Outer scope will not be shadowed, if variable defined in outer scope, and inside the with scope.
+#+begin_src nix
+longName = { a = 3; b = 4; }
+let a = 10; in with longName; a + b
+
+# 14
+#+end_src
 
