@@ -249,6 +249,9 @@ They provide rollback versioning.
 :PROPERTIES:
 :ID:       44d92141-78f1-4505-89b0-565fd57edcc0
 :END:
+** Everything in Nix language is an expression
+** Everything is immutable
+** Strongly typed, not statically typed (must do conversions to match types)
 * Misc
 ** Sharing /nix over all nodes
 ** Network-online target
