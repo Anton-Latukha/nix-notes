@@ -380,19 +380,23 @@ Build a nix expresiion.
 String line encloses into " ".
 Multi-line encloses into '' ''.
 Variable inside string =${foo}=.
+
 **** Path
 Parses expression as path until slash not followed by space, so =./= - for current directory.
 =2/3= - is a relative path.
+
 ***** URL
 Are also [[Path]].
+
 **** Boolean
 #+begin_src nix
 true
 false
 #+end_src
+
 **** Null
 *** Extended type
 **** Function
-**** List
-**** Set
+**** List :drill:
+**** Set :drill:
 
