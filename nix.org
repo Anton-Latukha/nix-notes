@@ -316,3 +316,42 @@ Make package a priority, to solve filename clashes:
 
 *** nix-repl
 Read-eval-print-loop for work with Nix language.
+*** nix-store
+Querrying store & closures.
+
+References (immidiate depedencies):
+#+begin_src fish
+/*/ --querry --references <paths>
+#+end_src
+
+Referrers (the store paths currently existing in the store that refer to one of paths):
+#+begin_src fish
+/*/ --querry --refererrers <paths>
+#+end_src
+
+Whole closure of referrers:
+#+begin_src fish
+/*/ --querry --refererrers-closure <paths>
+#+end_src
+
+Requisites (the whole closure of dependencies):
+#+begin_src fish
+/*/ --querry --requisites <paths>
+#+end_src
+
+=stdout= serialized data prepared for import from the store
+(if =paths= refer to not includded paths - import probably would fail, for proper export see: [[nix-copy-closure]]):
+#+begin_src fish
+/*/ --export <paths>
+#+end_src
+
+=stdout= serialized data prepared for import to the store
+(if =stdin= refers to not included | not existing path - would fail):
+#+begin_src fish
+/*/ --import
+#+end_src
+
+Print in the tree form, bigger closures first, recurse into paths only uniqule:
+#+begin_src fish
+/*/ --tree
+#+end_src
