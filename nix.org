@@ -252,6 +252,12 @@ They provide rollback versioning.
 ** Everything in Nix language is an expression
 ** Everything is immutable
 ** Strongly typed, not statically typed (must do conversions to match types)
+* Shortcommings :drill:
+:PROPERTIES:
+:ID:       ae2225e0-9322-4e9b-b506-cb79f34ee69f
+:END:
+*** Data format migration is your own responsibility
+*** Nix on Linux uses it's own stack of everything
 * Misc
 ** Sharing /nix over all nodes
 ** Network-online target
