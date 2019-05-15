@@ -433,4 +433,16 @@ Any type: [2 "foo" true (2*3)].
 Lists are immutable, it is possible to add/remove elements, but that will build and return a new list.
 
 **** Set :drill:
+Sets in Nix are association between a key (string) and expression.
+#+begin_src nix
+S = {
+      key = "value";
+      bar = "two";
+      "123" = "num";
+      # ; after every key-value assignment
+    }
+#+end_src
+
+Sets are not argument sets used in functions.
+
 
