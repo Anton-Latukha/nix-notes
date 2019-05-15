@@ -260,11 +260,3 @@ They provide rollback versioning.
 *** Nix on Linux uses it's own stack of everything
 * Misc
 ** Sharing /nix over all nodes
-** Network-online target
-+ means the networking stack is up
-+ ifs not guaranteed to still be configured
-+ only use in After= for clean ahutdown
-+ ifs are configured with routable IPs
-+ use target only as last resort
-+ services suppose to handle network reconfiguration gracefully
-+ use with After= & Wants=
