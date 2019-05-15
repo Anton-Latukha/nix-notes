@@ -314,3 +314,5 @@ Make package a priority, to solve filename clashes:
 /*/ --set-flag priority 10 gcc
 #+end_src
 
+*** nix-repl
+Read-eval-print-loop for work with Nix language.
