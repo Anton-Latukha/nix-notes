@@ -397,6 +397,11 @@ false
 **** Null
 *** Extended type
 **** Function
+***** Nameless lambda function :drill:
+#+begin_src nix
+x : x*2
+#+end_src
+
 **** List :drill:
 **** Set :drill:
 
