@@ -48,6 +48,7 @@ without C compiler
 #+begin_src shell
 nix-store -q --references path/
 #+end_src
+
 * Built-in function
 currentSystem
 isAttrs
@@ -215,6 +216,7 @@ pkgs = import <nixpkgs> {}
 pkgs.config.allowUnfree
 #-> true
 #+end_src
+
 * Utils
 ** Define Nix dependencies to build in nix-shell env with `nix-script` tool
 ** Nix-review tool to automate reviews
@@ -314,7 +316,7 @@ Make package a priority, to solve filename clashes:
 /*/ --set-flag priority 10 gcc
 #+end_src
 
-*** nix-repl
+*** nix repl
 Read-eval-print-loop for work with Nix language.
 *** nix-store
 Querrying store & closures.
@@ -355,6 +357,7 @@ Print in the tree form, bigger closures first, recurse into paths only uniqule:
 #+begin_src fish
 /*/ --tree
 #+end_src
+
 *** nix-build
 Build a nix expresiion.
 * Language Nix
@@ -364,9 +367,11 @@ Build a nix expresiion.
 ** Value types of Nix Language
 *** Operation type
 **** Arithmetic operation
-+ - * builtins.div
+=+ - * builtins.div=
+=2/3= - is a relative [[Path]].
+=a - b= - string, =a-b= - arithmetic expression.
 **** Boolean
-|| && !
+=|| && !=
 **** Order
 != < > <= >= ==
 *** Data type
