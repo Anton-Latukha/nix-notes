@@ -369,3 +369,13 @@ Build a nix expresiion.
 || && !
 **** Order
 != < > <= >= ==
+*** Data type
+**** Integer
+**** String
+**** Path
+**** Boolean
+#+begin_src nix
+true
+false
+#+end_src
+**** Null
