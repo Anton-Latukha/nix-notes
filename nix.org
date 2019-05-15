@@ -355,3 +355,5 @@ Print in the tree form, bigger closures first, recurse into paths only uniqule:
 #+begin_src fish
 /*/ --tree
 #+end_src
+*** nix-build
+Build a nix expresiion.
