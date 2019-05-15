@@ -266,3 +266,51 @@ They provide rollback versioning.
 :END:
 ** Nix uses SQLite
 ** ~/.nix-profile/ -> /nix/var/nix/profiles/per-user/<uname>/profile
+* Tools
+** Main tools
+*** nix-env
+Manages environment, profiles and their generations.
+List generations:
+#+begin_src fish
+/*/ --list-generations
+#+end_src
+
+List installed derivations:
+#+begin_src fish
+/*/ --querry
+#+end_src
+
+Rollback:
+#+begin_src fish
+/*/ --rollback
+#+end_src
+
+Switch to generation:
+#+begin_src fish
+/*/ --switch-generation <num>
+#+end_src
+
+Upgrade:
+#+begin_src fish
+/*/ --upgrade <packages>
+/*/ --upgrade    # Everything
+#+end_src
+
+Remove:
+#+begin_src fish
+/*/ --uninstall <package>
+/*/ --uninstall '.*'    # Everything
+#+end_src
+
+Freeze the package to hold-back, keep the current version:
+#+begin_src fish
+/*/ --set-flag keep true package
+#+end_src
+
+Make package a priority, to solve filename clashes:
+#+begin_src fish
+/*/ --set-flag priority <lower_number> package
+/*/ --set-flag priority 5 binutils
+/*/ --set-flag priority 10 gcc
+#+end_src
+
