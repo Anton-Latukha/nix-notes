@@ -464,4 +464,13 @@ As in pure functional language - =if= is full.
 if a > b then "yes" else "no"
 #+end_src
 
+** let expression
+#+begin_src nix-repl
+let a = "value"; in a
+let a = 3; b = 4; in a+b
+#+end_src
+
+Variable value can not be assined more then once.
+Variable value can be shadowed by the local scope.
+
 
