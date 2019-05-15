@@ -379,3 +379,8 @@ true
 false
 #+end_src
 **** Null
+*** Extended type
+**** Function
+**** List
+**** Set
+
