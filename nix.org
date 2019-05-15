@@ -429,5 +429,8 @@ foo 5
 #+end_src
 
 **** List :drill:
+Any type: [2 "foo" true (2*3)].
+Lists are immutable, it is possible to add/remove elements, but that will build and return a new list.
+
 **** Set :drill:
 
