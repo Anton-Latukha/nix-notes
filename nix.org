@@ -381,6 +381,8 @@ String line encloses into " ".
 Multi-line encloses into '' ''.
 Variable inside string =${foo}=.
 **** Path
+Parses expression as path until slash not followed by space, so =./= - for current directory.
+=2/3= - is a relative path.
 **** Boolean
 #+begin_src nix
 true
