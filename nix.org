@@ -450,4 +450,12 @@ Sets are not argument sets used in functions.
 s.key
 #+end_src
 
+***** Recursive set
+#+begin_src nix
+rec {
+      a = 3;
+      b = a + 4;
+    }
+#+end_src
+
 
