@@ -377,6 +377,9 @@ Build a nix expresiion.
 *** Data type
 **** Integer
 **** String
+String line encloses into " ".
+Multi-line encloses into '' ''.
+Variable inside string =${foo}=.
 **** Path
 **** Boolean
 #+begin_src nix
