@@ -445,4 +445,9 @@ S = {
 
 Sets are not argument sets used in functions.
 
+***** Access arguments on the set
+#+begin_src nix
+s.key
+#+end_src
+
 
