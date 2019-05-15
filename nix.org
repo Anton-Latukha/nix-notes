@@ -418,6 +418,16 @@ name 3 7
 # 21
 #+end_src
 
+***** Partial application function :drill:
+#+begin_src nix
+name = a : b : a*b
+# ...
+foo = name 4
+# ...
+foo 5
+# 20
+#+end_src
+
 **** List :drill:
 **** Set :drill:
 
