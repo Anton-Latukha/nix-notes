@@ -260,3 +260,9 @@ They provide rollback versioning.
 *** Nix on Linux uses it's own stack of everything
 * Misc
 ** Sharing /nix over all nodes
+* Internals
+:PROPERTIES:
+:ID:       569bb267-d7c9-468a-ad1d-c9086d5f4b55
+:END:
+** Nix uses SQLite
+** ~/.nix-profile/ -> /nix/var/nix/profiles/per-user/<uname>/profile
