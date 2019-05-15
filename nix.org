@@ -410,6 +410,14 @@ name 3
 # 6
 #+end_src
 
+***** Named lambda function with many parameters :drill:
+#+begin_src nix
+name = a : b : a*b
+# ...
+name 3 7
+# 21
+#+end_src
+
 **** List :drill:
 **** Set :drill:
 
