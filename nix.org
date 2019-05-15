@@ -458,4 +458,10 @@ rec {
     }
 #+end_src
 
+** if expression
+As in pure functional language - =if= is full.
+#+begin_src nix
+if a > b then "yes" else "no"
+#+end_src
+
 
