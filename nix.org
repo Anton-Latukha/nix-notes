@@ -41,14 +41,6 @@ x: x*2
 y: (x: x*y)
 **** Variadic arguments
 mul = { a, b, ... }: a*b
-* Different notes
-** stdenvNoCC
-without C compiler
-** Check what closure references
-#+begin_src shell
-nix-store -q --references path/
-#+end_src
-
 * Built-in function
 currentSystem
 isAttrs
@@ -261,6 +253,13 @@ They provide rollback versioning.
 *** Data format migration is your own responsibility
 *** Nix on Linux uses it's own stack of everything
 * Misc
+** stdenvNoCC
+without C compiler
+** Check what closure references
+#+begin_src fish
+nix-store -q --references path/
+#+end_src
+
 ** Sharing /nix over all nodes
 * Internals
 :PROPERTIES:
@@ -360,7 +359,7 @@ Print in the tree form, bigger closures first, recurse into paths only uniqule:
 
 *** nix-build
 Build a nix expresiion.
-* Language Nix
+* Nix language
 :PROPERTIES:
 :ID:       e4483417-ba89-46f4-97a6-a629dff5be82
 :END:
