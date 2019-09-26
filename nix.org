@@ -359,6 +359,19 @@ Print in the tree form, bigger closures first, recurse into paths only uniqule:
 
 *** nix-build
 Build a nix expresiion.
+
+*** nixos-rebuild
+
+Run a dry evaluation build:
+#+begin_src fish
+sudo nixos-rebuild dry-build
+#+end_src
+
+Reduild to the file tree source, repo:
+#+begin_src fish
+sudo nixos-rebuild -I <path> build/boot/switch
+#+end_src
+
 * Nix language
 :PROPERTIES:
 :ID:       e4483417-ba89-46f4-97a6-a629dff5be82
@@ -488,4 +501,3 @@ let a = 10; in with longName; a + b
 
 # 14
 #+end_src
-
