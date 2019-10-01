@@ -281,6 +281,12 @@ List installed derivations:
 /*/ --querry
 #+end_src
 
+List packages installed in system profile. To search by name, run:
+#+begin_src fish
+/*/ -qaP
+
+#+end_src
+
 Rollback:
 #+begin_src fish
 /*/ --rollback
