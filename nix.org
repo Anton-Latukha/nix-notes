@@ -50,57 +50,57 @@ toString
 Forces remove of the dependency. Even if Nix filter does not reduce dependency after compilation.
 * Useful commands
 ** Show direct runtime dependencies
-#+begin_src shell
+#+begin_src fish
 nix-store -q --references "$(command -v bassename)"
 #+end_src
 
 ** Show reverse dependencies
-#+begin_src shell
+#+begin_src fish
 nix-store -q --referrers "$(command -v basename)"
 #+end_src
 
 ** Show catamorphed closure
-#+begin_src shell
+#+begin_src fish
 nix-store -qR "$(command -v bassename)"
 #+end_src
 
 ** Show tree of closure
-#+begin_src shell
+#+begin_src fish
 nix-store -q --tree "$(command -v basename)"
 #+end_src
 
 ** Recovering making rollback from store directory
-#+begin_src shell
+#+begin_src fish
 /nix/store/<hash>-nix-<ver>/bin/nix-env --rollback
 #+end_src
 
 ** Recover with reinstall from store directory
-#+begin_src shell
+#+begin_src fish
 /nix/store/<hash>-nix-<ver>/bin/nix-env -i /nix/store/<hash>-nix-<ver>
 #+end_src
 
 ** Show all derivation dependencies sorted by their closure size
-#+begin_src shell
+#+begin_src fish
 nix path-info --json -rS *store path* | jq 'map(select(.closureSize > 1e6)) | sort_by(.closureSize) | map([.path, .closureSize/1e6])'
 #+end_src
 ** Show all derivation dependencies sorted by their output size
-#+begin_src shell
+#+begin_src fish
 nix path-info --json -rs *store path* | jq 'map(select(.narSize > 1e6)) | sort_by(.narSize) | map([.path, .narSize/1e6])'
 #+end_src
 ** Show all closure dependencies in a tree form
-#+begin_src shell
+#+begin_src fish
 nix-store -q --tree *store path*
 #+end_src
 ** Build derivation from local NixPkgs description
-#+begin_src shell
+#+begin_src fish
 nix-build {/home/pyro/src/nixpkgs} -A *attrName*
 #+end_src
 ** Get total closure size
-#+begin_src shell
+#+begin_src fish
 nix-store -qR *store path* | xargs du -s | cut -f 1 | xargs | sed -e 's/ /+/g'|bc
 #+end_src
 ** Enter nix-shell environment to test/work with package
-#+begin_src shell
+#+begin_src fish
 nix-shell {/home/pyro/src/nixpkgs} -A *attrName*
 #+end_src
 As comands enter next phases:
@@ -110,26 +110,26 @@ As comands enter next phases:
 *** configurePhase
 *** buildPhase
 ** Build depending closures with nox-review
-#+begin_src shell
+#+begin_src fish
 nix-shell -p nox --run "nox-review wip"    # tests uncommited changes
 nix-shell -p nox --run "nox-review wip --against *the previous to changes commit*"
 nix-shell -p nox --run "nox-review pr *id*"    # very slow, clones NixPkgs
 #+end_src
 ** Run tests for package
 For current system <nixpkgs>, using NIX_PATH:
-#+begin_src shell
+#+begin_src fish
 nix-build '<nixpkgs/nixos/tests/login.nix>'
 #+end_src
 
 For running selected nix derivation / test from Git NixPkgs repo:
-#+begin_src shell
+#+begin_src fish
 cd ~/src/nixpkgs/..
 nix-build test.nix
 #+end_src
 
 It runs against the current Git repo.
 ** To try the app without installing
-   #+begin_src shell
+   #+begin_src fish
    nix run nixpkgs.nix-review
    #+end_src
 * Developing/debugging package
@@ -164,7 +164,7 @@ Sandbox is strict.
 ** Sandbox components
   * (No cgroups, cgroups is to limit how much resources process can use)
 *** Build chroot
-#+begin_src shell
+#+begin_src fish
 /
  build/
        env-vars/
@@ -196,13 +196,13 @@ When the build crashes - it halts and print a command that allows to attach to t
 It attaches your system attached to the sandbox.
 
 To go fully into the container:
-#+begin_src shell
+#+begin_src fish
 cntr exec
 #+end_src
 ** Debug syscalls with sysdig
 See [[nix-sysdig]]
 * Evaluating data in REPL
-#+begin_src shell
+#+begin_src fish
 nix repl
 pkgs = import <nixpkgs> {}
 pkgs.config.allowUnfree
@@ -224,7 +224,7 @@ Use the wrapper `nix-sysdig`:
   * Records all system calls
   * Replay system calls on demand with filtering
   * + Add heuristics
-#+begin_src shell
+#+begin_src fish
 sudo nix-sysdig record packageName
 # shell now in the package sandboxe
 # manually go through the procedure to build the package
