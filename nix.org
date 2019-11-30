@@ -507,3 +507,17 @@ let a = 10; in with longName; a + b
 
 # 14
 #+end_src
+* Haskell
+
+* Drafts
+
+#+begin_src text
+lib = import <nixpkgs/lib>
+    nixpkgsSet = with lib; { # nixpkgsSet is the main-scope set of config keys
+      EDITOR = "Elswhere user-set-value";
+    } // { # Opening a work in some other set. // overrides the values only if value is reset in new set
+      EDITOR = mkIf false "Override-value";
+    }
+
+:p EDITOR
+#+end_src
