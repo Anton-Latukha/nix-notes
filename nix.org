@@ -509,6 +509,8 @@ let a = 10; in with longName; a + b
 #+end_src
 * Haskell
 
+Cabal2Nix supports the Cabals dodgy =x-revision:= field, and supplies it as =revision ==, so closure change is triggered.
+
 * Drafts
 
 #+begin_src text
