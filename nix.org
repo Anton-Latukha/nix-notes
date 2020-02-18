@@ -518,6 +518,10 @@ Cabal2Nix supports the Cabals dodgy =x-revision:= field, and supplies it as =rev
 
 Haskell packages whose Nix name (second column) begins with a haskell- prefix are packages that provide a library whereas packages without that prefix provide just executables. Librart packages may provide executables too.
 
+** Nix shortcommings
+
+Convention causes trouble with packages like 3dmodels and 4Blocksm situation is just unsolved and ignored.
+
 * Drafts
 
 #+begin_src text
