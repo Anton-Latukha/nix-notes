@@ -516,6 +516,8 @@ let a = 10; in with longName; a + b
 
 Cabal2Nix supports the Cabals dodgy =x-revision:= field, and supplies it as =revision ==, so closure change is triggered.
 
+Haskell packages whose Nix name (second column) begins with a haskell- prefix are packages that provide a library whereas packages without that prefix provide just executables. Librart packages may provide executables too.
+
 * Drafts
 
 #+begin_src text
