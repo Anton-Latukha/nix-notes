@@ -383,6 +383,9 @@ Reduild to the file tree source, repo:
 sudo nixos-rebuild -I <path> build/boot/switch
 #+end_src
 
+** Cloud tools
+*** nixbuild.net
+*** Cachix
 * Nix language
 :PROPERTIES:
 :ID:       e4483417-ba89-46f4-97a6-a629dff5be82
