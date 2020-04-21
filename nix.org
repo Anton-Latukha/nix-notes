@@ -383,6 +383,7 @@ Reduild to the file tree source, repo:
 sudo nixos-rebuild -I <path> build/boot/switch
 #+end_src
 
+*** nixos-option
 ** Cloud tools
 *** nixbuild.net
 *** Cachix
