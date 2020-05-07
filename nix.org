@@ -552,3 +552,8 @@ Look or general reason, like Cabal 3.2 release.
 
 pkgs/development/haskell-modules/configuration-hackage2nix.yml
 
+*** "Do we need ...(old version of package) for anything?"
+
+#+begin_src fish
+rg -R 'Cabal_3_0' pkgs
+#+end_src
