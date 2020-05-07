@@ -544,3 +544,7 @@ lib = import <nixpkgs/lib>
 **** Open
 https://hydra.nixos.org/jobset/nixpkgs/haskell-updates/evals
 
+**** Check evaluation errors
+
+Look or general reason, like Cabal 3.2 release.
+
