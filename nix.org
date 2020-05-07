@@ -538,3 +538,9 @@ lib = import <nixpkgs/lib>
 
 :p EDITOR
 #+end_src
+** Updating Haskell packages in Nix
+
+*** Hydra
+**** Open
+https://hydra.nixos.org/jobset/nixpkgs/haskell-updates/evals
+
