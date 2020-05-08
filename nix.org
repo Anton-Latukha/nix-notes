@@ -564,3 +564,14 @@ rg -R 'Cabal_3_0' pkgs
 rg -R -l 'Cabal_3_0' pkgs | xargs -L1 sed -i 's/Cabal_3_0/Cabal_3_2/g'
 #+end_src
 
+
+
+*** Building
+
+#+begin_src fish
+nixpkgs-build -A cabal2nix
+#+end_src
+
+#+begin_src fish
+nixpkgs-build -A cabal-install
+#+end_src
