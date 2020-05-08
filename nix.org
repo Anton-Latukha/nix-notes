@@ -557,3 +557,10 @@ pkgs/development/haskell-modules/configuration-hackage2nix.yml
 #+begin_src fish
 rg -R 'Cabal_3_0' pkgs
 #+end_src
+
+*** Try to just update package descriptions to new version of dependency
+
+#+begin_src fish
+rg -R -l 'Cabal_3_0' pkgs | xargs -L1 sed -i 's/Cabal_3_0/Cabal_3_2/g'
+#+end_src
+
