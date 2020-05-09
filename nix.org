@@ -575,3 +575,9 @@ nixpkgs-build -A cabal2nix
 #+begin_src fish
 nixpkgs-build -A cabal-install
 #+end_src
+
+**** (optional) Ignore overly-restrictive upper version bounds
+
+#+begin_src nix
+packageName = super.doJailBreak packageName;
+#+end_src
