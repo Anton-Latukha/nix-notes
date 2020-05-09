@@ -581,3 +581,10 @@ nixpkgs-build -A cabal-install
 #+begin_src nix
 packageName = super.doJailBreak packageName;
 #+end_src
+
+**** Jailbreak exploits environment and therefore hides real error messages
+
+#+begin_src nix
+cabal-install = doJailBreak super.cabal-install;
+packageName = doJailBreak packageName;
+#+end_src
