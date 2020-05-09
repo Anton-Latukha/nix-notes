@@ -588,3 +588,8 @@ packageName = super.doJailBreak packageName;
 cabal-install = doJailBreak super.cabal-install;
 packageName = doJailBreak packageName;
 #+end_src
+
+**** Self and super
+
+=self= - final
+=super= - previous
