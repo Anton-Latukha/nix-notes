@@ -604,3 +604,12 @@ self: super:
 }
 #+end_src
 
+Fudging deps:
+#+begin_src nix
+self: super:
+{
+  package = super.package.override {
+    dependency = self.dependency3;
+  };
+}
+#+end_src
