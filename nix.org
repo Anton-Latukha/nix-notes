@@ -623,3 +623,5 @@ self: super:
 If Hydra is still building old packages.
 
 If big projects: GHC, Cabal-install, git-annex, stack - you can merge branch into master, because it is enough - some packages may be broken but it is much enough stability.
+**** Be free to merge `master` into `haskell-updates`
+Peti is Ok with that.
