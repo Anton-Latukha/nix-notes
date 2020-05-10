@@ -616,8 +616,6 @@ self: super:
 
 **** What is overrideScope?
 
-**** git merge onto
-
 **** Requirements to merge haskell-updates to master
 
 If Hydra is still building old packages.
