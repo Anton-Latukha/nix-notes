@@ -613,3 +613,6 @@ self: super:
   };
 }
 #+end_src
+
+**** What is overrideScope?
+
