@@ -632,3 +632,8 @@ And then you compile that, and out a binary that =nix-build=, =nix-env=, =nix*= 
 
 Compile current =nixpkgs= into Haskell source code. Write a thin wrapper that uses =nix-store= library from Haskell to implement =nix-instantiate=. And once you have =nix-instantiate= you are basically done. That is what GUIX does.
 
+At some point that would be essentially a fork.
+
+=nixpkgs= database is not type-checked, but should be, it type checked dynamically. Some from Haskell point of view - =nixpkgs= should be parsed and then successfully clean it up. Nix Haskell infrastructure is completely generated, we can make that typesafe fairly easily. Typesefety spreads like a virus, make one small part of the packages typesafe and then that would spread.
+
+At some point you would write your package database in Haskell. The code that generates the Hackage packages database now would just run as a part of Nix and generate just like that - give it the Hackage tarball that that is it.
