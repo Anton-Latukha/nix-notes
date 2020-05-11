@@ -623,3 +623,12 @@ If Hydra is still building old packages.
 If big projects: GHC, Cabal-install, git-annex, stack - you can merge branch into master, because it is enough - some packages may be broken but it is much enough stability.
 **** Be free to merge `master` into `haskell-updates`
 Peti is Ok with that.
+**** Idea: Nix with types and typechecking through HNix
+
+"Nix" library in Haskell.
+"NixPkgs" library in Haskell.
+
+And then you compile that, and out a binary that =nix-build=, =nix-env=, =nix*= do but it all that compiled-in.
+
+Compile current =nixpkgs= into Haskell source code. Write a thin wrapper that uses =nix-store= library from Haskell to implement =nix-instantiate=. And once you have =nix-instantiate= you are basically done. That is what GUIX does.
+
