@@ -645,3 +645,4 @@ Cases:
   * really broken: does not evaluate/does not compile, broken on all platforms, not with a particular compiler version, you can or can not tell that they are buggy: [[~/src/nix/pkgs/pkgs/development/haskell-modules/confuguration-hackage2nix.yaml]] -> ~broken-packages~
   * packages that are not on some platforms: [[~/src/nix/pkgs/pkgs/development/haskell-modules/confuguration-hackage2nix.yaml]] -> ~unsupported-platforms~
   There is no proper error handling in Nix, for example Windows packages maintainer came up with the solution depending on "unsupported-on-this-platform" package in those platforms.
+  * packages that compile and fine, but they have weird/proprietary license - so not compiled on Hydra: [[~/src/nix/pkgs/pkgs/development/haskell-modules/confuguration-hackage2nix.yaml]] -> ~dont-distribute-packages~
