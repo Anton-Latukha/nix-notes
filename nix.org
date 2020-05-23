@@ -646,3 +646,14 @@ Cases:
   * packages that are not on some platforms: [[~/src/nix/pkgs/pkgs/development/haskell-modules/confuguration-hackage2nix.yaml]] -> ~unsupported-platforms~
   There is no proper error handling in Nix, for example Windows packages maintainer came up with the solution depending on "unsupported-on-this-platform" package in those platforms.
   * packages that compile and fine, but they have weird/proprietary license - so not compiled on Hydra: [[~/src/nix/pkgs/pkgs/development/haskell-modules/confuguration-hackage2nix.yaml]] -> ~dont-distribute-packages~
+
+Broken marking system should be graph forward resolving, but that is not implemented.
+** Explicitly attaching a dependency
+
+#+begin_src nix
+  overlay = pkgs.lib.foldr pkgs.lib.composeExtensions (_: _: {}) [
+    (self: super: with pkgs.haskell.lib; {
+      aeson                 = addBuildDepend super.aeson self.contravariant;
+    };
+
+#+end_src
