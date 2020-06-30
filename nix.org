@@ -657,3 +657,8 @@ Broken marking system should be graph forward resolving, but that is not impleme
     };
 
 #+end_src
+
+** Make package broken only until major release
+#+begin_src nix
+ broken = stdenv.isDarwin && stdenv.lib.versionOlder version "1.16.1";
+#+end_src
