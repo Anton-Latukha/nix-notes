@@ -614,6 +614,12 @@ self: super:
 }
 #+end_src
 
+**** Override package options
+
+#+begin_src nix
+pkgs.package.override { dependency = pkgs.newdependency; }
+#+end_src
+
 **** What is overrideScope?
 
 **** Requirements to merge haskell-updates to master
