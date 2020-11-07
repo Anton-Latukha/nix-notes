@@ -668,3 +668,30 @@ Broken marking system should be graph forward resolving, but that is not impleme
 #+begin_src nix
  broken = stdenv.isDarwin && stdenv.lib.versionOlder version "1.16.1";
 #+end_src
+
+* Regenerating Haskell Nix package sets
+
+** Package requirements
+
+GHC
+cabal-install
+git
+
+
+#+begin_src fish
+#** Get Nixpkgs
+git clone https://github.com/NixOS/nixpkgs.git nixpkgs
+git clone -b hackage https://github.com/commercialhaskell/all-cabal-hashes hackage
+git clone https://github.com/NixOS/cabal2nix.git
+cd cabal2nix
+nix-shell -p cabal2nix
+cabal2nix --shell > default.nix .
+nix-shell
+mv ../hackage .
+mv ../nixpkgs .
+nix-env -iA nixpkgs.wget
+nix-env -iA nixpkgs.dnsutils
+cabal v2-build  # Produces cabal2nix & hackage2nix
+for n in */preferred-versions; do (cat $n ; echo ) >> preferred-versions; done
+cabal v2-run hackage2nix
+#+end_src
