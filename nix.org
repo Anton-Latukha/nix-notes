@@ -526,6 +526,17 @@ Haskell packages whose Nix name (second column) begins with a haskell- prefix ar
 
 Convention causes trouble with packages like 3dmodels and 4Blocksm situation is just unsolved and ignored.
 
+** Maintenence
+*** Regenerate ~haskellPackages~ set to observe changes
+
+#+begin_src shell
+./maintainers/scripts/haskell/regenerate-hackage-packages.sh
+#+end_src
+
+See diff.
+
+Regenerates `pkgs/development/haskell-modules/hackage-packages.nix`
+
 * Drafts
 
 #+begin_src text
